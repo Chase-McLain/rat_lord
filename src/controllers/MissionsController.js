@@ -10,6 +10,7 @@ constructor(){
   super('api/missions')
   this.router
   .get('', this.getMissions)
+  .post('', this.createMission)
 }
 
   async getMissions(request, response, next){
@@ -21,7 +22,15 @@ constructor(){
     }
   }
 
-
+async createMission(request, response, next){
+try {
+  const missionData = request.body
+  const newMission = await missionsService.createMission(missionData)
+  response.send(newMission)
+} catch (error) {
+  next(error)
+}
+}
 
 
 }

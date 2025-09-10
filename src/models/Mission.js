@@ -6,7 +6,7 @@ import { Schema } from "mongoose";
 export const MissionSchema = new Schema({
 
   codename: { type: String, required: true, minLength: 1, maxLength: 50 },
-  objective: { type: String, required: true, minLength: 1, maxLength: 50 },
+  objective: { type: String, required: true, minLength: 1, maxLength: 500 },
   year: { type: String, required: true, minLenght: 1, maxLength: 50 },
   completed: { type: Boolean, required: true, default: false },
   locationId: { type: Schema.ObjectId, required: true },
@@ -20,7 +20,7 @@ export const MissionSchema = new Schema({
 
 MissionSchema.virtual('rat',
   {
-    
+
     localField:'ratId',
     foreignField: '_id',
     ref:'Rat',
