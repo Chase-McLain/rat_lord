@@ -11,11 +11,11 @@ class DbContext {
 
   Account = mongoose.model('Account', AccountSchema);
 
-  Rats = mongoose.model('rat', RatSchema);
+  Rats = mongoose.model('Rat', RatSchema);
 
-  Locations = mongoose.model('location', LocationSchema);
+  Locations = mongoose.model('Location', LocationSchema);
 
-  Missions = mongoose.model('mission', MissionSchema)
+  Missions = mongoose.model('Mission', MissionSchema)
 
 }
 
