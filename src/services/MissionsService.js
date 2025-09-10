@@ -11,11 +11,16 @@ class MissionsService{
   
   
   
- async createMission(missionData) {
+  async createMission(missionData) {
     const newMission = await dbContext.Missions.create(missionData)
     await newMission.populate('location')
     await newMission.populate('rat', '-name -picture')
     return newMission
+  }
+
+ async getMissionsForRat(ratid) {
+    const ratsMissions = await dbContext.Missions.find({ratId: ratid}).populate('location')
+    return ratsMissions
   }
 
 }
