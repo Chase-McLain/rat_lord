@@ -14,7 +14,7 @@ export class RatsController extends BaseController {
 
   }
 
-  async getRats(response, request, next) {
+  async getRats(request, response, next) {
     try {
       const rats = await ratsService.getRats()
       response.send(rats)

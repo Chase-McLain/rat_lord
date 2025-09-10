@@ -6,7 +6,6 @@ export default [
       sourceType: 'module',
     },
     rules: {
-      quotes: ['error', 'single'],
-    },
+    }
   },
 ];
