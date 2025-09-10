@@ -3,6 +3,7 @@ import { AccountSchema } from '../models/Account.js'
 import { ValueSchema } from '../models/Value.js'
 import { RatSchema } from '../models/Rat.js';
 import { LocationSchema } from '../models/Location.js';
+import { MissionSchema } from '../models/Mission.js';
 
 class DbContext {
 
@@ -14,7 +15,7 @@ class DbContext {
 
   Locations = mongoose.model('location', LocationSchema);
 
-
+  Missions = mongoose.model('mission', MissionSchema)
 
 }
 
