@@ -1,4 +1,5 @@
 import { locationsService } from "../services/LocationsService.js";
+import { missionsService } from "../services/MissionsService.js";
 import BaseController from "../utils/BaseController.js";
 
 
@@ -8,6 +9,7 @@ export class LocationsController extends BaseController{
     super('api/locations')
     this.router
     .get('', this.getLocations)
+    .get('/:locationId/missions', this.getMissionsForLocation)
 
 
   }
@@ -22,7 +24,15 @@ export class LocationsController extends BaseController{
     }
   }
 
-
+  async getMissionsForLocation(request, response, next){
+    try {
+      const locationid = request.params.locationId
+      const locationsMissions = await missionsService.getMissionsForLocation(locationid)
+      response.send(locationsMissions)
+    } catch (error) {
+      
+    }
+  }
 
 }
 
